@@ -73,7 +73,6 @@ public class Board {
             for (int j = 0; j < this.board.get(i).size(); j++) {
                 Integer value = this.board.get(i).get(j);
                 if (rowConstraint.contains(value)) {
-                    System.out.println("Row failure i:" + i + " j:" + j);
                     return false;
                 }
 
@@ -83,7 +82,6 @@ public class Board {
 
                 value = this.board.get(j).get(i);
                 if (colConstraint.contains(value)) {
-                    System.out.println("Column failure i:" + i + " j:" + j);
                     return false;
                 }
 
@@ -103,7 +101,6 @@ public class Board {
                     for (int l = 0; l < 3; l++) {
                         Integer value = this.board.get(i + k).get(j + l);
                         if (gridConstraint.contains(value)) {
-                            System.out.println("Grid constraint failure i:" + i + " j:" + j + " k:" + k + " l:" + l);
                             return false;
                         }
                         if (value != null) {
