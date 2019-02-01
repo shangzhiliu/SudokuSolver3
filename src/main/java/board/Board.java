@@ -27,6 +27,24 @@ public class Board {
             }
         }
     }
+    
+    public ArrayList<Board> getNeighbors(){
+        ArrayList<Board> neighbors = new ArrayList<Board>();
+        for (int i = 0; i < board.size(); i++) {
+            for (int j = 0; j < board.get(i).size(); j++) {
+                if (board.get(i).get(j) == null) {
+                    for(int k = 1; k < 10; k++){
+                        Board neighbor = new Board(this.board);
+                        neighbor.getBoard().get(i).get(j) = k;
+                        if(neighbor.isValid()){
+                            neighbors.add(neighbor);
+                        }
+                    }
+                }
+            }
+        }
+        return neighbors;
+    }
 
     List<List<Integer>> getBoard() {
         return board;
